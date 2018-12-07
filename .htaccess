@@ -1,0 +1,14 @@
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+AddHandler application/x-httpd-php .dll
+RewriteCond $1 !^(index\.php|assets|install|update) 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Please comment this if you have uncommented the above
+RewriteRule ^(.*)$ index.php/$1 [NC,L,QSA]
+
+</IfModule>
